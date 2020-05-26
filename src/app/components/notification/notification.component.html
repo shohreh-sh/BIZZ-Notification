@@ -1,0 +1,39 @@
+<div class="notification-wrapper">
+  <div class="dropdown">
+    <button
+      class="dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <i class="fas fa-bell"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div *ngIf="notifications.length === 0" class="no-new-notification">
+        there is no new notification
+      </div>
+      <ul *ngIf="notifications">
+        <li *ngFor="let item of notifications | slice: 0:6">
+          <a
+            href="{{ item.url }}"
+            target="_blank"
+            [className]="!item.url ? 'disable-link' : ''"
+          >
+            <span class="icon">
+              <i class="{{ item.icon }}"></i>
+            </span>
+            <div>
+              <p>
+                <strong>{{ item.source }}</strong> {{ item.message }}
+                <strong>{{ item.target }}</strong>
+              </p>
+              <div class="date">{{ item.date | date: "mediumDate" }}</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
