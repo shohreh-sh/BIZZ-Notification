@@ -12,14 +12,14 @@
   </div>
 
   <div class="form-group">
-    <label>Event Types</label>
-    <select class="form-control" formControlName="event_type" required>
+    <label>Notification Types</label>
+    <select class="form-control" formControlName="notification_type" required>
       <option value="">Select an option</option>
       <option
-        *ngFor="let event of notificationTypes | enumToArray"
-        [value]="event.name"
+        *ngFor="let notification of notificationTypes | enumToArray"
+        [value]="notification.name"
       >
-        {{ event.name }}
+        {{ notification.name }}
       </option>
     </select>
   </div>

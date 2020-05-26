@@ -11,6 +11,7 @@ import { CreateEventComponent } from './routed/create-event/create-event.compone
 import { ReactiveFormsModule } from '@angular/forms';
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { NotificationInfoComponent } from './routed/notification-info/notification-info.component';
+import { NotificationIconComponent } from './components/notification/notification-icon/notification-icon.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NotificationInfoComponent } from './routed/notification-info/notificati
     CreateEventComponent,
     EnumToArrayPipe,
     NotificationInfoComponent,
+    NotificationIconComponent,
   ],
   imports: [
     BrowserModule,

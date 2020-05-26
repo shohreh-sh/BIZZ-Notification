@@ -7,7 +7,7 @@ export enum NotificationTypes {
 }
 
 export interface Notification {
-  event_type: NotificationTypes;
+  notification_type: NotificationTypes;
   source: string;
   target: string;
   message?: string;

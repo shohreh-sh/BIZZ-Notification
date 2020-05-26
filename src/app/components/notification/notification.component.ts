@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Notification} from '../../models/notification.model';
-import {SocketService} from '../../services/socket.service';
-import {SocketEventNameModel} from '../../models/enumeration/socket-event-name.model';
+import { Notification } from '../../models/notification.model';
+import { SocketService } from '../../services/socket.service';
+import { SocketEventNameModel } from '../../models/enumeration/socket-event-name.model';
 
 @Component({
   selector: 'app-notification',
@@ -10,6 +10,8 @@ import {SocketEventNameModel} from '../../models/enumeration/socket-event-name.m
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
+
+  notificationMessages = {};
   constructor(private socketService: SocketService) {}
 
   ngOnInit() {
@@ -17,10 +19,14 @@ export class NotificationComponent implements OnInit {
   }
 
   getNotificationFromWebSocket() {
-    return this.socketService.listen(SocketEventNameModel.NOTIFICATION).subscribe(data => {
-      this.notifications.unshift(data);
-      console.log(this.notifications)
-    });
+    return this.socketService
+      .listen(SocketEventNameModel.NOTIFICATION)
+      .subscribe(data => {
+        this.notifications.unshift(data);
+      });
   }
 
+  renderNotificationMessage(notificationType: string): string {
+    return 'text';
+  }
 }

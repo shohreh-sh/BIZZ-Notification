@@ -11,29 +11,37 @@
       <i class="fas fa-bell"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="notification-header">
+        <h5>Notifications</h5>
+        <a class="disable-link"> Settings</a>
+      </div>
       <div *ngIf="notifications.length === 0" class="no-new-notification">
         there is no new notification
       </div>
-      <ul *ngIf="notifications">
-        <li *ngFor="let item of notifications | slice: 0:6">
-          <a
-            href="{{ item.url }}"
-            target="_blank"
-            [className]="!item.url ? 'disable-link' : ''"
-          >
+      <div class="notification-list">
+        <ul *ngIf="notifications">
+          <li *ngFor="let item of notifications | slice: 0:30">
+            <a
+              href="{{ item.url }}"
+              target="_blank"
+              [className]="!item.url ? 'disable-link' : ''"
+            >
             <span class="icon">
               <i class="{{ item.icon }}"></i>
             </span>
-            <div>
-              <p>
-                <strong>{{ item.source }}</strong> {{ item.message }}
-                <strong>{{ item.target }}</strong>
-              </p>
-              <div class="date">{{ item.date | date: "mediumDate" }}</div>
-            </div>
-          </a>
-        </li>
-      </ul>
+              <div>
+                <p>
+                  <strong> {{ item.source }} </strong>
+                  <span> {{renderNotificationMessage(item.notification_type)}} </span>
+                  <strong> {{ item.target }} </strong>
+                </p>
+                <div class="date">{{ item.date | date: "mediumDate" }}</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a class="disable-link see-all" href="">See All</a>
     </div>
   </div>
 </div>
