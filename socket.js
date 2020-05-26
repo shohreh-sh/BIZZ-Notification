@@ -19,7 +19,7 @@ io.on("connection", function(socket) {
   console.log("A user connected");
 });
 
-app.post("/create-event", (req, res) => {
+app.post("/create-notification", (req, res) => {
   res.send(req.body);
   io.sockets.emit(EVENT_TYPES.NOTIFICATION, req.body);
 });
