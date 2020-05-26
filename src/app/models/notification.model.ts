@@ -1,13 +1,13 @@
-export enum NotificationTypes {
+export enum NotificationType {
   INVITATIONAL = 'invitation',
-  CREATE = 'create',
-  REMOVE = 'remove',
-  MOVE = 'move',
   COMMIT = 'commit',
+  CREATE = 'create',
+  MOVE = 'move',
+  REMOVE = 'remove'
 }
 
 export interface Notification {
-  notification_type: NotificationTypes;
+  notification_type: NotificationType;
   source: string;
   target: string;
   message?: string;
@@ -16,6 +16,26 @@ export interface Notification {
   date?: string;
 }
 
-export enum NotificationMessage {
+export const NotificationTypesValue = new Map<NotificationType, string>([
+  [NotificationType.INVITATIONAL, 'invitation'],
+  [NotificationType.COMMIT, 'commit'],
+  [NotificationType.CREATE, 'create'],
+  [NotificationType.MOVE, 'move'],
+  [NotificationType.REMOVE, 'remove']
+]);
 
-}
+export const NotificationMessages = new Map<NotificationType, string>([
+  [NotificationType.INVITATIONAL, 'invited you to'],
+  [NotificationType.COMMIT, 'committed changes to'],
+  [NotificationType.CREATE, 'created'],
+  [NotificationType.MOVE, 'has moved to'],
+  [NotificationType.REMOVE, 'removed claims from']
+]);
+
+export const NotificationIcons = new Map<NotificationType, string>([
+  [NotificationType.INVITATIONAL, 'fa-user'],
+  [NotificationType.COMMIT, 'fa-globe'],
+  [NotificationType.CREATE, 'fa-file'],
+  [NotificationType.MOVE, 'fa-file'],
+  [NotificationType.REMOVE, 'fa-close']
+]);

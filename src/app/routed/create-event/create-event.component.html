@@ -16,10 +16,10 @@
     <select class="form-control" formControlName="notification_type" required>
       <option value="">Select an option</option>
       <option
-        *ngFor="let notification of notificationTypes | enumToArray"
-        [value]="notification.name"
+        *ngFor="let notification of notificationTypes | keyvalue"
+        [value]="notification.value"
       >
-        {{ notification.name }}
+        {{ notification.value }}
       </option>
     </select>
   </div>

@@ -1,5 +1,6 @@
 :host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   color: #333;
   box-sizing: border-box;
@@ -19,6 +20,22 @@ h6 {
 p {
   margin: 0 !important;
 }
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  justify-content: space-between;
+  img {
+    margin: 0 16px;
+  }
+}
 
 .content {
   display: flex;
@@ -37,11 +54,9 @@ svg#clouds {
   width: 1920px;
 }
 
-
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
-
-  .card-container > *:not(.circle-link) ,
+  .card-container > *:not(.circle-link),
   .terminal {
     width: 100%;
   }
@@ -67,5 +82,3 @@ svg#clouds {
     visibility: hidden;
   }
 }
-
-

@@ -26,13 +26,19 @@
               target="_blank"
               [className]="!item.url ? 'disable-link' : ''"
             >
-            <span class="icon">
-              <i class="{{ item.icon }}"></i>
-            </span>
+              <span class="icon">
+                <i
+                  class="fas {{
+                    renderNotificationIcon(item.notification_type)
+                  }}"
+                ></i>
+              </span>
               <div>
                 <p>
                   <strong> {{ item.source }} </strong>
-                  <span> {{renderNotificationMessage(item.notification_type)}} </span>
+                  <span>
+                    {{ renderNotificationMessage(item.notification_type) }}
+                  </span>
                   <strong> {{ item.target }} </strong>
                 </p>
                 <div class="date">{{ item.date | date: "mediumDate" }}</div>

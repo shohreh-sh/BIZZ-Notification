@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../../services/notification.service';
-import { NotificationTypes } from '../../models/notification.model';
+import { NotificationTypesValue } from '../../models/notification.model';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -17,17 +17,19 @@ export class CreateEventComponent implements OnInit {
     url: new FormControl('http://localhost:4200/notification-info')
   });
 
-  public notificationTypes = NotificationTypes;
-
   constructor(private notificationService: NotificationService) {}
+
+  notificationTypes = NotificationTypesValue;
 
   ngOnInit(): void {}
 
   onCreate(): void {
-    this.notificationService.create(this.eventCreateForm.value).subscribe(res => {
-      this.eventCreateForm.get('target').reset();
-      this.eventCreateForm.get('source').reset();
-      this.eventCreateForm.get('notification_type').reset();
-    });
+    this.notificationService
+      .create(this.eventCreateForm.value)
+      .subscribe(res => {
+        this.eventCreateForm.get('target').reset();
+        this.eventCreateForm.get('source').reset();
+        this.eventCreateForm.get('notification_type').reset();
+      });
   }
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Notification } from '../../models/notification.model';
+import {
+  Notification,
+  NotificationMessages,
+  NotificationIcons,
+  NotificationType
+} from '../../models/notification.model';
 import { SocketService } from '../../services/socket.service';
 import { SocketEventNameModel } from '../../models/enumeration/socket-event-name.model';
 
@@ -11,7 +16,6 @@ import { SocketEventNameModel } from '../../models/enumeration/socket-event-name
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
 
-  notificationMessages = {};
   constructor(private socketService: SocketService) {}
 
   ngOnInit() {
@@ -26,7 +30,10 @@ export class NotificationComponent implements OnInit {
       });
   }
 
-  renderNotificationMessage(notificationType: string): string {
-    return 'text';
+  renderNotificationMessage(notificationType: NotificationType): string {
+    return NotificationMessages.get(notificationType);
+  }
+  renderNotificationIcon(notificationType: NotificationType): string {
+    return NotificationIcons.get(notificationType);
   }
 }

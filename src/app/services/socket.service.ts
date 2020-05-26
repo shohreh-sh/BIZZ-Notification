@@ -17,7 +17,6 @@ export class SocketService {
   listen(eventName: string): Observable<Notification> {
     return new Observable(subscriber => {
       this.socket.on(eventName, data => {
-        console.log(data);
         subscriber.next(data);
       });
     });
