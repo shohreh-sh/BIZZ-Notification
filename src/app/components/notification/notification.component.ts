@@ -15,6 +15,7 @@ import { SocketEventNameModel } from '../../models/enumeration/socket-event-name
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
+  notificationStatus = false;
 
   constructor(private socketService: SocketService) {}
 
@@ -26,8 +27,13 @@ export class NotificationComponent implements OnInit {
     return this.socketService
       .listen(SocketEventNameModel.NOTIFICATION)
       .subscribe(data => {
+        this.notificationStatus = true;
         this.notifications.unshift(data);
       });
+  }
+
+  checkNewNotifications(): void {
+    this.notificationStatus = false;
   }
 
   renderNotificationMessage(notificationType: NotificationType): string {

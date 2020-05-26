@@ -7,7 +7,9 @@
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
+      (click)="(checkNewNotifications())"
     >
+      <i *ngIf="notificationStatus" class="bullet"></i>
       <i class="fas fa-bell"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
