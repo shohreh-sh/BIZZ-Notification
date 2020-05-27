@@ -36,6 +36,6 @@ export const NotificationIcons = new Map<NotificationType, string>([
   [NotificationType.INVITATIONAL, 'fa-user'],
   [NotificationType.COMMIT, 'fa-globe'],
   [NotificationType.CREATE, 'fa-file'],
-  [NotificationType.MOVE, 'fa-file'],
-  [NotificationType.REMOVE, 'fa-close']
+  [NotificationType.MOVE, 'fa-arrows-alt'],
+  [NotificationType.REMOVE, 'fa-trash']
 ]);

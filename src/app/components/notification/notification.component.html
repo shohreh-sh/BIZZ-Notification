@@ -25,7 +25,6 @@
           <li *ngFor="let item of notifications | slice: 0:30">
             <a
               href="{{ item.url }}"
-              target="_blank"
               [className]="!item.url ? 'disable-link' : ''"
             >
               <span class="icon">
