@@ -8,6 +8,7 @@ import { CreateEventComponent } from './routed/create-event/create-event.compone
 import { NotificationComponent } from './components/notification/notification.component';
 import { NotificationInfoComponent } from './routed/notification-info/notification-info.component';
 import { AppComponent } from './app.component';
+import {NotificationService} from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

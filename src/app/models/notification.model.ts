@@ -10,10 +10,10 @@ export interface Notification {
   notification_type: NotificationType;
   source: string;
   target: string;
-  message?: string;
-  icon?: string;
   url?: string;
   date?: string;
+  message?: string;
+  icon?: string;
 }
 
 export const NotificationTypesValue = new Map<NotificationType, string>([

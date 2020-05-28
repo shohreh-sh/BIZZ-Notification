@@ -39,6 +39,7 @@ export class NotificationComponent implements OnInit {
   renderNotificationMessage(notificationType: NotificationType): string {
     return NotificationMessages.get(notificationType);
   }
+
   renderNotificationIcon(notificationType: NotificationType): string {
     return NotificationIcons.get(notificationType);
   }

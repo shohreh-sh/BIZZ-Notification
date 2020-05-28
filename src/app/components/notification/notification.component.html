@@ -7,7 +7,7 @@
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
-      (click)="(checkNewNotifications())"
+      (click)="checkNewNotifications()"
     >
       <i *ngIf="notificationStatus" class="bullet"></i>
       <i class="fas fa-bell"></i>
@@ -21,7 +21,7 @@
         there is no new notification
       </div>
       <div class="notification-list">
-        <ul *ngIf="notifications">
+        <ul *ngIf="notifications.length !== 0">
           <li *ngFor="let item of notifications | slice: 0:30">
             <a
               href="{{ item.url }}"
@@ -37,7 +37,7 @@
               <div>
                 <p>
                   <strong> {{ item.source }} </strong>
-                  <span>
+                  <span class="notification-message">
                     {{ renderNotificationMessage(item.notification_type) }}
                   </span>
                   <strong> {{ item.target }} </strong>
