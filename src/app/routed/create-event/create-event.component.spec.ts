@@ -20,13 +20,6 @@ describe('CreateEventComponent', () => {
   let component: CreateEventComponent;
   let fixture: ComponentFixture<CreateEventComponent>;
   let notificationService: NotificationService;
-  const notification: Notification = {
-    source: 'Shohre',
-    target: 'CX team',
-    notification_type: NotificationType.REMOVE,
-    date: '2020-05-27T09:20:39.215Z',
-    url: 'http://localhost:4200/notification-info'
-  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
